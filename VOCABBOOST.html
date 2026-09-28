@@ -1,0 +1,454 @@
+<!-- VOCABBOOST BLOGGER PAGE TEMPLATE
+     Paste into Blogger > Pages > New Page > HTML view.
+     Everything between the sections below is editable.
+     Replace the Quizlet placeholder with your actual Quizlet embed code.
+-->
+<style>
+  #vocabboost * { box-sizing: border-box; }
+  #vocabboost {
+    --pink:#f8dce7;
+    --pink2:#fff4f7;
+    --rose:#d86b91;
+    --dark:#332b31;
+    --muted:#71666d;
+    --white:#ffffff;
+    --line:#eadde3;
+    font-family: Arial, Helvetica, sans-serif;
+    color:var(--dark);
+    background:#fff;
+    max-width:1100px;
+    margin:0 auto;
+    line-height:1.65;
+  }
+  #vocabboost a { color:inherit; }
+  .vb-hero {
+    background:linear-gradient(135deg,#fff1f6,#f8dce7);
+    border-radius:28px;
+    padding:70px 35px;
+    text-align:center;
+    margin:20px 0 30px;
+  }
+  .vb-badge {
+    display:inline-block;
+    background:#fff;
+    color:var(--rose);
+    padding:7px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .vb-hero h1 {
+    font-size:clamp(38px,6vw,68px);
+    line-height:1.05;
+    margin:18px 0 12px;
+    letter-spacing:-2px;
+  }
+  .vb-hero p {
+    max-width:650px;
+    margin:0 auto 28px;
+    color:var(--muted);
+    font-size:18px;
+  }
+  .vb-button {
+    display:inline-block;
+    background:var(--rose);
+    color:#fff !important;
+    text-decoration:none;
+    padding:13px 22px;
+    border-radius:999px;
+    font-weight:700;
+    margin:5px;
+  }
+  .vb-button.alt { background:#fff; color:var(--rose) !important; }
+  .vb-nav {
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--line);
+    padding:10px;
+    margin-bottom:35px;
+    overflow-x:auto;
+    white-space:nowrap;
+    text-align:center;
+  }
+  .vb-nav a {
+    display:inline-block;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    padding:8px 12px;
+    border-radius:999px;
+    margin:2px;
+  }
+  .vb-nav a:hover { background:var(--pink2); color:var(--rose); transform:translateY(-1px); }
+  .vb-section { padding:25px 12px 45px; scroll-margin-top:65px; }
+  .vb-kicker {
+    color:var(--rose);
+    text-transform:uppercase;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.12em;
+  }
+  .vb-section h2 {
+    font-size:clamp(28px,4vw,42px);
+    line-height:1.15;
+    margin:7px 0 12px;
+  }
+  .vb-lead { color:var(--muted); max-width:760px; font-size:17px; }
+  .vb-box {
+    background:var(--pink2);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:24px;
+    margin:20px 0;
+  }
+  .vb-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:25px;
+  }
+  .vb-card {
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:24px;
+    box-shadow:0 8px 25px rgba(70,40,55,.06);
+  }
+  .vb-card .icon { font-size:30px; }
+  .vb-card h3 { margin:10px 0 6px; }
+  .vb-card p { color:var(--muted); margin:0; }
+  .vb-steps {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:25px;
+  }
+  .vb-step {
+    border-radius:18px;
+    padding:22px;
+    background:#fff;
+    border:1px solid var(--line);
+    text-align:center;
+  }
+  .vb-step strong { display:block; color:var(--rose); font-size:14px; margin-bottom:6px; }
+  .vb-table-wrap { overflow-x:auto; margin-top:20px; }
+  .vb-table {
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .vb-table th, .vb-table td {
+    padding:14px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    vertical-align:top;
+  }
+  .vb-table th { background:var(--pink2); }
+  .vb-quizlet {
+    min-height:260px;
+    border:2px dashed #ddb7c6;
+    border-radius:22px;
+    background:#fff9fb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    margin-top:22px;
+  }
+  .vb-quizlet code { background:#fff; padding:3px 7px; border-radius:6px; }
+  .vb-form {
+    display:grid;
+    gap:14px;
+    margin-top:20px;
+  }
+  .vb-form-row {
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px;
+  }
+  .vb-footer {
+    background:#332b31;
+    color:#fff;
+    border-radius:25px 25px 0 0;
+    padding:35px 25px;
+    text-align:center;
+    margin-top:25px;
+  }
+  .vb-footer p { margin:6px 0; opacity:.85; }
+  .vb-input, .vb-textarea {
+    width:100%;
+    border:1.5px solid #e5ccd7;
+    border-radius:12px;
+    padding:12px 14px;
+    font:inherit;
+    color:var(--dark);
+    background:#fff;
+    outline:none;
+    margin-top:8px;
+  }
+  .vb-input:focus, .vb-textarea:focus {
+    border-color:var(--rose);
+    box-shadow:0 0 0 3px rgba(216,107,145,.12);
+  }
+  .vb-textarea { min-height:90px; resize:vertical; }
+  .vb-answer-card {
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+    margin:12px 0;
+  }
+  .vb-answer-card label {
+    display:block;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .vb-note {
+    font-size:13px;
+    color:var(--muted);
+    margin-top:10px;
+  }
+
+  @media (max-width:760px) {
+    .vb-hero { padding:50px 22px; }
+    .vb-grid, .vb-steps { grid-template-columns:1fr; }
+    .vb-section { padding-left:5px; padding-right:5px; }
+  }
+</style>
+
+<div id="vocabboost">
+
+  <nav class="vb-nav" aria-label="Main navigation">
+    <a href="#home">HOME</a>
+    <a href="#problem">THE PROBLEM</a>
+    <a href="#solution">OUR SOLUTION</a>
+    <a href="#quizlet">QUIZLET</a>
+    <a href="#vocabulary">VOCABULARY</a>
+    <a href="#apply">APPLY &amp; ASSESS</a>
+    <a href="#reflect">REFLECT</a>
+  </nav>
+
+  <header class="vb-hero" id="home">
+    <span class="vb-badge">Interactive English Learning</span>
+    <h1>VOCABBOOST</h1>
+    <p><strong>Learn it. Practice it. Remember it.</strong><br>
+      An interactive vocabulary-learning experience designed to help students build stronger English vocabulary retention.</p>
+    <a class="vb-button" href="#problem">START LEARNING ↓</a><a class="vb-button alt" href="#quizlet">GO TO QUIZLET →</a>
+  </header>
+
+  <section class="vb-section" id="problem">
+    <div class="vb-kicker">01 · The Problem · Apple</div>
+    <h2>Language-Teaching Problem: Poor/Limited Retention of English Vocabulary</h2>
+
+    <div class="vb-box">
+      <p>Learning and retaining English vocabulary can be challenging for students. They may learn new words during a lesson but forget their meanings after a few days, especially when vocabulary is reviewed only once or studied through cramming before a test.</p>
+
+      <p>Alharthi (2015) explained that insufficient practice and other learning-related factors can contribute to vocabulary attrition, making newly learned words difficult to retain. Similarly, Uchihara et al. (2019) found that repetition plays an important role in incidental vocabulary learning, suggesting that repeated exposure to words can support vocabulary learning.</p>
+
+      <p>In addition, Kim and Webb (2022) found that spaced practice has positive effects on second-language learning, supporting the use of repeated review at different times rather than relying on one-time or cramming-based study.</p>
+
+      <p><strong>These findings show the importance of providing students with regular, repeated, and spaced opportunities to review and practice English vocabulary to improve long-term retention.</strong></p>
+    </div>
+
+    <h3>📚 References</h3>
+    <div class="vb-box">
+      <p>Alharthi, T. (2015). Reasons for vocabulary attrition: Revisiting the state of the art. <em>International Education Studies, 8</em>(10), 86–95. <a href="https://doi.org/10.5539/ies.v8n10p86" target="_blank" rel="noopener">https://doi.org/10.5539/ies.v8n10p86</a></p>
+      <p>Kim, S. K., &amp; Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. <em>Language Learning, 72</em>(1), 1–34.</p>
+      <p>Uchihara, T., Webb, S., &amp; Yanagisawa, A. (2019). The effects of repetition on incidental vocabulary learning: A meta-analysis of correlational studies. <em>Language Learning, 69</em>(4), 946–983.</p>
+    </div>
+  </section>
+
+  <section class="vb-section" id="solution">
+    <div class="vb-kicker">02 · Our Solution · Sheena</div>
+    <h2>Using Quizlet to Support Vocabulary Retention</h2>
+
+    <div class="vb-box">
+      <p>Quizlet will be used as a learning tool for students to practice and learn new words. Students will look through digital flashcards with the target word, the definition of the word, the pronunciation of the word, and a sample sentence.</p>
+
+      <p>Students will then use Quizlet to practice the word further using the <strong>Learn, Write, Spell, and Test</strong> features, so that they can memorize the new words, get feedback, and review the words until they can remember them.</p>
+    </div>
+
+    <div class="vb-grid">
+      <div class="vb-card"><div class="icon">🔤</div><h3>Recognize</h3><p>Recognize 10–15 target vocabulary words and their definitions.</p></div>
+      <div class="vb-card"><div class="icon">🧠</div><h3>Remember</h3><p>Practice repeatedly to strengthen recall and differentiate meanings.</p></div>
+      <div class="vb-card"><div class="icon">✍️</div><h3>Use</h3><p>Use at least five target words correctly in original sentences.</p></div>
+    </div>
+
+    <div class="vb-box">
+      <h3>🎯 Objectives</h3>
+      <p>Students will be able to:</p>
+      <ol>
+        <li>Recognize and remember the definitions of <strong>10–15 target vocabulary words</strong>.</li>
+        <li>Differentiate the meanings of the words.</li>
+        <li>Use at least <strong>five words correctly in a sentence</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="vb-box">
+      <h3>📝 Procedure</h3>
+      <div class="vb-steps">
+        <div class="vb-step"><strong>1 · PRE-TEST</strong>Measure students' initial vocabulary knowledge.</div>
+        <div class="vb-step"><strong>2 · INTRODUCE</strong>Present the target vocabulary words.</div>
+        <div class="vb-step"><strong>3 · STUDY</strong>Review the Quizlet flashcards.</div>
+        <div class="vb-step"><strong>4 · PRACTICE</strong>Use Learn, Write, Spell, and Test repeatedly.</div>
+        <div class="vb-step"><strong>5 · APPLY</strong>Use selected vocabulary in sentences.</div>
+        <div class="vb-step"><strong>6 · POST-TEST</strong>Measure the outcome of vocabulary retention.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vb-section" id="quizlet">
+    <div class="vb-kicker">03 · Explore &amp; Practice · Jhasel</div>
+    <h2>Studying Quiz Time! on Quizlet</h2>
+    <p class="vb-lead">Ready to practice? Open the Quizlet activity below and work through the vocabulary using the available study and practice features.</p>
+
+    <div class="vb-steps">
+      <div class="vb-step"><strong>STEP 1</strong>📖 Study<br>Review the target words, definitions, pronunciation, and examples.</div>
+      <div class="vb-step"><strong>STEP 2</strong>🎯 Practice<br>Use Learn, Write, Spell, and Test to strengthen recall.</div>
+      <div class="vb-step"><strong>STEP 3</strong>✅ Review<br>Go back to difficult words until you can remember them.</div>
+    </div>
+
+    <div class="vb-quizlet">
+      <div>
+        <h3>🎮 Quizlet Activity</h3>
+        <p><strong>Studying Quiz Time!</strong></p>
+        <a class="vb-button" href="https://quizlet.com/ph/1213931162/quiz-time-flash-cards/?x=1jqU&i=7bonuw" target="_blank" rel="noopener">OPEN QUIZLET →</a>
+        <p style="margin-top:18px;color:#71666d;font-size:14px;">If your instructor provides a Quizlet embed code, you can replace this button with the embedded activity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="vb-section" id="vocabulary">
+    <div class="vb-kicker">04 · Vocabulary Toolkit</div>
+    <h2>Target Vocabulary</h2>
+    <p class="vb-lead">Review the 10–15 vocabulary words prepared for the Quizlet activity. Replace the sample rows below with the actual words from Jhasel's Quizlet set.</p>
+
+    <div class="vb-table-wrap">
+      <table class="vb-table">
+        <thead><tr><th>Word</th><th>Meaning</th><th>Example Sentence</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Target Word 1</strong></td><td>Insert the definition here.</td><td>Insert an example sentence here.</td></tr>
+          <tr><td><strong>Target Word 2</strong></td><td>Insert the definition here.</td><td>Insert an example sentence here.</td></tr>
+          <tr><td><strong>Target Word 3</strong></td><td>Insert the definition here.</td><td>Insert an example sentence here.</td></tr>
+          <tr><td><strong>Target Word 4</strong></td><td>Insert the definition here.</td><td>Insert an example sentence here.</td></tr>
+          <tr><td><strong>Target Word 5</strong></td><td>Insert the definition here.</td><td>Insert an example sentence here.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="vb-section">
+    <div class="vb-kicker">05 · Learning Journey</div>
+    <h2>From Recognition to Retention</h2>
+    <p class="vb-lead">The goal is not simply to memorize definitions. Students move from recognizing words to remembering their meanings and using them meaningfully.</p>
+
+    <div class="vb-steps">
+      <div class="vb-step"><strong>👀 RECOGNIZE</strong>Encounter and identify new words.</div>
+      <div class="vb-step"><strong>🧠 REMEMBER</strong>Practice recalling meanings repeatedly.</div>
+      <div class="vb-step"><strong>✍️ USE</strong>Apply vocabulary in meaningful sentences.</div>
+    </div>
+  </section>
+
+  <section class="vb-section" id="apply">
+    <div class="vb-kicker">06 · Application, Assessment &amp; Integration · Ate Glai</div>
+    <h2>Apply What You Learned</h2>
+    <p class="vb-lead">After studying on Quizlet, pick five new words you learned and write your own sentences using each word.</p>
+
+    <div class="vb-box">
+      <p>This activity gives you a chance to use the words in realistic situations and shows if you truly understand what each word means.</p>
+    </div>
+
+    <div class="vb-form">
+      <div class="vb-answer-card">
+        <label for="word1">1. Word</label>
+        <input class="vb-input" id="word1" type="text" placeholder="Type the vocabulary word here">
+        <label for="sentence1" style="margin-top:12px;">My sentence</label>
+        <textarea class="vb-textarea" id="sentence1" placeholder="Type your sentence here..."></textarea>
+      </div>
+      <div class="vb-answer-card">
+        <label for="word2">2. Word</label>
+        <input class="vb-input" id="word2" type="text" placeholder="Type the vocabulary word here">
+        <label for="sentence2" style="margin-top:12px;">My sentence</label>
+        <textarea class="vb-textarea" id="sentence2" placeholder="Type your sentence here..."></textarea>
+      </div>
+      <div class="vb-answer-card">
+        <label for="word3">3. Word</label>
+        <input class="vb-input" id="word3" type="text" placeholder="Type the vocabulary word here">
+        <label for="sentence3" style="margin-top:12px;">My sentence</label>
+        <textarea class="vb-textarea" id="sentence3" placeholder="Type your sentence here..."></textarea>
+      </div>
+      <div class="vb-answer-card">
+        <label for="word4">4. Word</label>
+        <input class="vb-input" id="word4" type="text" placeholder="Type the vocabulary word here">
+        <label for="sentence4" style="margin-top:12px;">My sentence</label>
+        <textarea class="vb-textarea" id="sentence4" placeholder="Type your sentence here..."></textarea>
+      </div>
+      <div class="vb-answer-card">
+        <label for="word5">5. Word</label>
+        <input class="vb-input" id="word5" type="text" placeholder="Type the vocabulary word here">
+        <label for="sentence5" style="margin-top:12px;">My sentence</label>
+        <textarea class="vb-textarea" id="sentence5" placeholder="Type your sentence here..."></textarea>
+      </div>
+      <p class="vb-note">You can type directly into these boxes. Note: these fields are for completing the activity on the page; they do not automatically send answers to your teacher.</p>
+    </div>
+
+    <div class="vb-box">
+      <h3>📊 Assessment</h3>
+      <p>Students will take a short vocabulary test. The test will check if they can match the words to their correct definitions and use a few of them correctly in sentences.</p>
+      <p>We will compare their <strong>post-test scores with their pre-test scores</strong> to see if their word retention actually improved.</p>
+    </div>
+
+    <div class="vb-box">
+      <h3>🔗 Integration / Expected Outcomes</h3>
+      <p>By combining <strong>Quizlet practice, sentence writing, and testing</strong>, students should be able to remember 10 to 15 new words, tell their meanings apart, and correctly use at least five of them in sentences.</p>
+      <p>Comparing their pre-test and post-test scores will help show if using this digital tool really helped them hold on to new vocabulary.</p>
+    </div>
+  </section>
+
+  <section class="vb-section" id="reflect">
+    <div class="vb-kicker">07 · Reflection</div>
+    <h2>Think About Your Learning</h2>
+    <p class="vb-lead">Type your reflection directly into the boxes below.</p>
+
+    <div class="vb-answer-card">
+      <label for="reflection1">💭 Which word was easiest for you to remember? Why?</label>
+      <textarea class="vb-textarea" id="reflection1" placeholder="Type your answer here..."></textarea>
+    </div>
+
+    <div class="vb-answer-card">
+      <label for="reflection2">🤔 Which word was most difficult to remember?</label>
+      <textarea class="vb-textarea" id="reflection2" placeholder="Type your answer here..."></textarea>
+    </div>
+
+    <div class="vb-answer-card">
+      <label for="reflection3">🌱 Did repeated practice help you remember the vocabulary?</label>
+      <textarea class="vb-textarea" id="reflection3" placeholder="Type your answer here..."></textarea>
+    </div>
+  </section>
+
+  <section class="vb-section">
+    <div class="vb-box" style="text-align:center;">
+      <div class="vb-kicker">Your Takeaway</div>
+      <h2>Learning Words Takes Practice.</h2>
+      <p class="vb-lead" style="margin-left:auto;margin-right:auto;">Vocabulary becomes more familiar when we encounter, practice, recall, and use words repeatedly.</p>
+      <a class="vb-button" href="#home">↑ BACK TO TOP</a>
+    </div>
+  </section>
+
+  <footer class="vb-footer">
+    <h3>VOCABBOOST</h3>
+    <p>Learn it. Practice it. Remember it.</p>
+    <p>Interactive English Vocabulary Learning</p>
+  </footer>
+
+</div>
